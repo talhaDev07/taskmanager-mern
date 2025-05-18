@@ -1,0 +1,26 @@
+# Use Node.js 18 Alpine base image
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy source code
+COPY . .
+
+# Copy environment variables file (optional)
+# COPY .env .env
+
+# Expose backend port
+EXPOSE 5000
+
+# Default command: run server.js (production)
+CMD ["node", "server.js"]
+
+# For development with nodemon, you can override command with:
+# docker run ... npm run dev

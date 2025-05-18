@@ -1,0 +1,42 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# dotenv environment files
+.env
+.env.*.local
+
+# Runtime
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage from tests
+coverage/
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Build artifacts (if using TypeScript or Babel)
+dist/
+build/
+
+# Temporary folders
+tmp/
+temp/
+.cache/
+
+# MongoDB dump files
+dump/
