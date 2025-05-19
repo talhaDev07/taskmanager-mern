@@ -10,7 +10,7 @@ pipeline {
 
         stage('Build with Docker Compose') {
             steps {
-                sh 'docker-compose -p jenkins-taskflow -f docker-compose.yml up --build -d'
+                sh 'cd $WORKSPACE && docker-compose -p jenkins-taskflow -f docker-compose.yml up --build -d'
             }
         }
     }
