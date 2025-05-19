@@ -1,32 +1,35 @@
 services:
   mongo:
-    image: mongo
+    image: mongo:6
     ports:
-      - "27018:27017"
+      - "27017:27017"
     volumes:
       - mongo-data:/data/db
+    restart: always
 
   server:
     build: ./server
-    container_name: jenkins_server
     ports:
-      - "6000:5000"
+      - "5000:5000"
     environment:
       - MONGO_URI=mongodb://mongo:27017/taskflow
     volumes:
       - ./server:/app
+      - /app/node_modules   # Prevent overwriting node_modules in container
     depends_on:
       - mongo
+    restart: always
 
   client:
     build: ./client
-    container_name: jenkins_client
     ports:
-      - "6173:5173"
+      - "5173:5173"
     volumes:
       - ./client:/app
+      - /app/node_modules   # Prevent overwriting node_modules in container
     depends_on:
       - server
+    restart: always
 
 volumes:
   mongo-data:
