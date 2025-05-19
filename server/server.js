@@ -16,9 +16,9 @@ app.use(express.json());
 app.use('/api/tasks', taskRoutes);
 
 // DB connection
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb+srv://mt_talha:talha123@cluster0.w2mk5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log('MongoDB connected');
-    app.listen(process.env.PORT, () => console.log(`Server running on port ${process.env.PORT}`));
+    app.listen(5000, () => console.log(`Server running on port ${process.env.PORT}`));
   })
   .catch(err => console.error('MongoDB connection error:', err));
