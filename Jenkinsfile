@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/talhaDev07/taskmanager-mern.git'
+                git branch: 'main', url: 'https://github.com/talhaDev07/taskmanager-mern.git'
             }
         }
 
